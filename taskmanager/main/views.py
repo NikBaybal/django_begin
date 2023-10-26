@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Task
-
+from .forms import TaskForm
 
 # Create your views here.
 def index(request):
@@ -11,4 +11,6 @@ def about(request):
     return render(request,'main/about.html')
 
 def create(request):
-    return render(request,'main/create.html')
+    form = TaskForm()
+    context = {'form': form}
+    return render(request,'main/create.html',context)
